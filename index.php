@@ -1,13 +1,18 @@
 <?php
-//Boolean And Converting To Boolean
-var_dump((bool) '');
-echo'<br>';
-var_dump((bool) array());
-echo'<br>';
-var_dump((bool) []);
-echo'<br>';
-var_dump((bool) "hassene");
-echo'<br>';
-var_dump((bool) array(1));
-echo'<br>';
-var_dump((bool) [1]);
+//String And Escaping
+echo '<br>';
+echo'hello PHP';
+echo '<br>';
+echo"hello 'PHP'";
+echo '<br>';
+echo'hello "PHP"';
+echo '<br>';
+echo'hello \'PHP\'';
+echo '<br>';
+echo'hello PHP\\';
+echo '<br>';
+echo '<br>';
+echo nl2br('hello PHP
+new line 
+laabane hassane');
+echo '<br>';
