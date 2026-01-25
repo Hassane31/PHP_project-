@@ -12,7 +12,7 @@ I am learning PHP from YouTube tutorials and pushing every video I watch as a co
 ## 🛠 Tools
 - Language: PHP
 - Editor: Visual Studio Code
-- OS: Linux
+- OS: Kali Linux
 
 ## 📂 Structure
 Each commit = one tutorial / one concept.
