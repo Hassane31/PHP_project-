@@ -1,20 +1,21 @@
 <?php 
-//Arithmetic Operators
+//Comparison Operators - Part 1
 
-echo 10+20;
-echo'<br>';
-echo gettype(20 + 10 );
-echo'<br>';
-//same logic with any other langage
+//test equal 
+var_dump(100 == 100 );
+echo '<br>';
+var_dump(100 <> "100");//true
+echo '<br>';
+echo '################';
+echo '<br>';
 
 
-echo'<br>';
-echo 21 % 10 ; //the rst of div
-echo'<br>';
-echo 4**2;//power  
-echo'<br>';
-echo gettype("100");//string
-echo'<br>';
-echo gettype(+"100");//intger
-echo'<br>';
-echo'<br>';
+//test identical 
+echo '<br>';
+var_dump (100 === "100");//false
+echo '<br>';
+var_dump (100 !== "100");//true 
+echo '<br>';
+echo '<br>';
+echo '<br>';
+echo '<br>';
