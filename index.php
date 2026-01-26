@@ -1,17 +1,33 @@
 <?php 
-//If, Elseif, Else - Basics
+//If, Elseif, Else - Basics -REAL LIFE EXAMPlEs
 
-if ( 10 > 5){
-    echo "hello world ";
+$page = "about";
+
+if($page == "about"){
+    echo "this is About page ";
+}
+echo '<br>';
+
+$title = "Home";
+ 
+if ($title == "Home"){
+    echo "<h1>Home Page</h1>";
+}
+elseif($title == "") {
+    echo "<h1>Unknown Page</h1>";
 }
 
-echo '<br >';
-if ( 10 < 10){
-    echo "first Condition !";
+echo '<br>';
+$lang = "Arabic";
+if ($lang == "Arabic"){
+    echo 'mar7ba';
 }
-elseif(10 == 10 ){
-    echo "second Condition! ";
+elseif($lang == "English"){
+    echo "hello ";
 }
-else{ //10>10 
-    echo "No 2";
+elseif($lang == "Spanish"){
+    echo "hola";
+}
+else {
+    echo "Unknown Language !!!";
 }
