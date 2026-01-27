@@ -1,43 +1,49 @@
 <?php
-//alternate syntax
 
-// if(10<5){
-// echo 'we are in IF';
-// }else{
-// echo 'we are in ELSE';
-// }
+//Nested if And advanced practice
+$name = "ousama";
+$is_student = true ;
+$is_orphan  = true ;
+$country = "egypet";
+$country_discount = 50 ;
+$price = 100 ;
+$student_discount = 10;
+$orphan_discount = 15 ;
 
 
-if (10 > 5):?>
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-    </head>
-    <body>
-        hello world
-    </body>
-    </html>
-    <?php
-endif?>
-<?php
-echo'<br>';
+if($country){
 
-if(10>10):
-    echo 'First condition';
-        echo'<br>';
-    echo 'First condition';
-        echo'<br>';
-    echo 'First condition';
+  if($is_student){
+     
+    if ($is_orphan){
+    echo "hello $name";
+    echo'<br>';
+    echo "this account have country discount : $country_discount 
+    <br>And student discount : $student_discount
+    <br>And orphan discount : $orphan_discount";
     
-    elseif(10>5):
-        echo'second condition';
-        echo'<br>';
-        echo'second condition';
-        echo'<br>';
-        echo'second condition';
-        else :
-            echo 'Else';
-        endif;
+    echo "<br>the finel price is :" .$price - $country_discount- $student_discount-$orphan_discount. "Dzd";  
+    }
+    else {
+         echo "hello $name";
+    echo'<br>';
+    echo "this account have country discount : $country_discount 
+    <br>And student discount : $student_discount";
+    echo "<br>the finel price is :" .$price - $country_discount-$student_discount. "Dzd";
+    }
+
+  }
+  else{
+    echo "hello $name";
+    echo'<br>';
+    echo "this account have jast country discount : $country_discount ";
+    echo "<br>the finel price is :" .$price - $country_discount . "Dzd";
+  }
+
+}
+else{
+    echo "hello $name";
+    echo'<br>';
+    echo "this account have no discount";
+    echo "<br>the finel price is : $price";
+}
