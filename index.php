@@ -1,22 +1,31 @@
-<?php 
-//FOREACH LOOP 
+<?php
+//Break , continue 
 
-$countries = ["EG","DZ","FR","USD","UK","USK"];
-echo'<pre>';
-print_r($countries);
-echo'</pre>';
+$countries = ["EG","DZ","FR","USA","UK","USK"];
 
-//foreach($array as $value){ }
+
 foreach($countries as $country){
-echo $country.'<br>';
+// if u dont want USA with...
+// if($country == "USA"){
+//   break ;
+// }
+echo $country."<br>";
+
+if($country == "USA"){
+  break ;
+   }
+
 }
 
-//foreach($array as $key => $value){  }
-$countries_with_discount = ["EG"=>50,"DZ"=>100,"FR"=>20,"USD"=>30,"UK"=>23,"USK"=>11];
-echo '<pre>';
-print_r($countries_with_discount);
-echo '</pre>';
+echo "###################<br>";
+foreach($countries as $country){
+// if u dont want USA with...
+// if($country == "USA"){
+//   break ;
+// }
+echo $country."<br>";
+if($country == "USA"){
+  continue;
+   }
 
-foreach($countries_with_discount as $country => $discount):
-  echo $country ."-------->" .$discount ."<br>";
-endforeach ;
+}
