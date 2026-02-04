@@ -1,33 +1,28 @@
 <?php
-//Function variable and function exists
+//passing argument by reference and return the type declaration 
 
-function one(){
-    return "returned from one function ";
-}
+function add_5($number){
+   $number+=5;
+   return $number;
+} 
+$n = 15;
+echo add_5($n);//20
+echo '<br>$n = '.$n;//15
 
-//echo one();
-$func1 = "one";
-echo "<br>.......<br>";
-echo $func1() ;
-echo "<br>.......<br>";
+echo "<br><br>#######################<br><br>";
 
-function say_hello_to_someone($someone){
-    return"hello $someone";
-}
-$func2="say_hello_to_someone";
-
-echo $func2("hassane");
-
-//check if funtion exists 
+function add_5_p2(&$number){
+   $number+=5;
+   return $number;
+} 
+$n = 15;
+echo add_5_p2($n);//20
+echo '<br>$n = '.$n;//20
 echo "<br>";
-if(function_exists("testing")){
-    echo "function is exists";
-}
-else {
-    echo "fuction dosnt exists";
-}
-echo "<br>";
+//return type declaration
 
-//echo strlen("hassane"); //7
-$func3= "strlen";
-echo $func3("hassane"); //7
+function calculate($n1,$n2):int{
+    return$n1+$n2;
+}
+echo gettype(calculate(10.5,9.5));//integer
+ 
