@@ -1,39 +1,28 @@
 <?php
-//Built in String Function
+//built in String Functions - Part 4 
 
-echo chunk_split("laabane hassane ",3,"@");//laa@ban@e h@ass@ane@ @
-echo"<br>";
+//strpos(string,search string,string index start)
+var_dump(strpos("hello world","w",6));//int(6) or //bool(false) 
+echo '<br>';
 
-echo "<pre>";
-print_r(str_split("Hassane"));
-echo "<pre>";
+var_dump(stripos("hello world","w"));//int(6)
+echo '<br>';
 
-//display
+var_dump(strpos("hello world","H",-2));//bool(false) 
+echo '<br>';
 
-    // [0] => H
-    // [1] => a
-    // [2] => s
-    // [3] => s
-    // [4] => a
-    // [5] => n
-    // [6] => e
+var_dump(strpos("hello world","l",-2));//int(9)
+echo '<br>';
 
-echo "<pre>";
-print_r(str_split("Hassane",2));
-echo "<pre>";
+var_dump(strrpos("hello world","l"));//int(9) //the last 'l' in the string 
+echo '<br>';
 
-//display 
+var_dump(substr_count("Hello Hello","He",1/**start string*/));// int(1)
+echo '<br>';
 
-    // [0] => Ha
-    // [1] => ss
-    // [2] => an
-    // [3] => e
+var_dump(substr_count("Hello Hello","He",1,7/* H | ello Hel | lo */));// int(1)
+echo '<br>';
+
+var_dump(substr_count("abcdabcd","abcda"));// int(1)
 
 
-echo "<h1>hello iness</h1>";
-echo "<br>";
-echo strip_tags("<h1>hello iness</h1>");//delete all tags
-echo "<br>";
-echo strip_tags("<h1>hello iness</h1>","<h1>");//delete all tags except <h1>
-echo "<br>";
-echo nl2br("laabane\nhassane\ngoode\nguy");
