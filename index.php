@@ -1,44 +1,36 @@
 <?php
-//string functions 
+//String functions part 1
 
-$str = "welcome to php programming";
-
-echo strlen($str); // 26
+echo strstr("Hello world", "world"); //returns the part of the string starting from the first occurrence of "world"
 echo "<br>";
 
-echo wordwrap($str,3,"<br>");
-
-// welcome
-// to
-// php
-// programming
-
-echo wordwrap($str,3,"<br>",true);
-
-// wel
-// com
-// e
-// to
-// php
-// pro
-// gra
-// mmi
-// ng
-
-echo "<br>";
-echo ord("a"); // 97
-echo "<br>";
-echo ord("A"); // 65
-echo "<br>";
-echo chr(97); // a
+echo strstr("Hello world", "lo"); //lo world
 echo "<br>";
 
-echo similar_text("programming","programmingo");//11
+echo strstr("Hello world", "lo",true); //hel
+echo "<br>";        
+
+echo strpos("Hello world", "world"); //returns the position of the first occurrence of "world"
+echo "<br>";        
+
+var_dump(strstr("Hello world", "W")); //bool(false)echo "<br>";        
+echo stristr("Hello world", "LO"); //lo world
 echo "<br>";
 
-echo similar_text("programming","programmingo",$percent); 
+echo var_dump(stristr("Hello world", "lo"));//string(8) "lo world"
 echo "<br>";
 
-echo $percent; // 95.652173913043
+echo 10_000_000;//10000000
+echo "<br>";
+
+echo number_format(1000000000.23423423);//1,000,000,000
+echo "<br>";
+echo number_format(1000000000.23423423,3);//1,000,000,000.234 
 
 echo "<br>";
+echo number_format(1000000000.23423423,3,"@");//1,000,000,000@234
+
+
+echo "<br>";
+echo number_format(1000000000.23423423,3,"@","A");//1A000A000A000@234
+
