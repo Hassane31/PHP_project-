@@ -1,59 +1,164 @@
 <?php
-//Array shift ,Array pop ,Array unshift , Array push  
+//array Slice , Array Splice
 
-$fruits = array("Banana", "Apple", "Mango", "Orange");
-print_r($fruits);
-echo "<br><br>";
+//array_slice
+$names = ["Iness", "Ali", "Mhmd", "Sara", "Mona", "Yara"];
 
-//Array shift
-$first = array_shift($fruits);
-echo "Array shift : " . $first . "<br>";//Banana
-print_r($fruits);
-echo "<br><br>";
+echo"<pre>";
+print_r(array_slice($names, 2)); // from index 2
+echo"</pre>";
+echo "<br>";
 
-//array pop
-$last =array_pop($fruits);
-echo "Array pop : " . $last . "<br>";//Orange
-print_r($fruits);
-echo "<br><br>";
+    // [0] => Iness
+    // [1] => Sara
+    // [2] => Mhmd
+    // [3] => Yara
 
-//array push    
-array_push($fruits, "Grapes");
-print_r($fruits);
-echo "<br><br>";
+echo"<pre>";
+print_r(array_slice($names, -4)); // from index 2 like -4 
+echo"</pre>";
 
-//we can add 1 element jast with 
-$fruits[] = "Watermelon";
-print_r($fruits);
-echo "<br><br>";
+    // [0] => Iness
+    // [1] => Ali
+    // [2] => Mhmd
+    // [3] => Yara
 
-//we use array push to add more than 1 element in array
-array_push($fruits, "Strawberry", "Pineapple");
-print_r($fruits);
-echo "<br><br>";
+echo"<pre>";
+print_r(array_slice($names, 2, 2)); // from index 2 to index 2+2 = 4
+echo"</pre>";
 
-//array unshift use to add element in starting of array 
-array_unshift($fruits, "Kiwi");
-print_r($fruits);
-echo "<br><br>";
+    // [0] => Mhmd
+    // [1] => Sara
+    
+echo"<pre>";
+print_r(array_slice($names, 2, -2)); // from index 2 to index -2 = 4 
+echo"</pre>";
+    
+echo"<pre>";
+print_r($names); // original array is not modified
+echo"</pre>";
 
-// //display 
-// Array ( [0] => Banana [1] => Apple [2] => Mango [3] => Orange )
+//-------------------------------------------------------------
 
-// Array shift : Banana
-// Array ( [0] => Apple [1] => Mango [2] => Orange )
+$chars_with_string_keys = ["a" => "A", "b" => "B", "c" => "C", "d" => "D", "e" => "E"];
+$chars_with_numeric_keys = [10 => "A", 11 => "B", 12 => "C", 13 => "D", 14 => "E"];
 
-// Array pop : Orange
-// Array ( [0] => Apple [1] => Mango )
+echo"<pre>";
+print_r(array_slice($chars_with_string_keys, 3,2 )); 
+echo"</pre>";
 
-//array push    
-// Array ( [0] => Apple [1] => Mango [2] => Grapes )
+    // [d] => D
+    // [e] => E
 
-//$fruits[] = "Watermelon";
-// Array ( [0] => Apple [1] => Mango [2] => Grapes [3] => Watermelon )
+echo"<pre>";
+print_r(array_slice($chars_with_numeric_keys, 3,2 )); 
+echo"</pre>";
 
-//array push to add more than 1 element in array
-// Array ( [0] => Apple [1] => Mango [2] => Grapes [3] => Watermelon [4] => Strawberry [5] => Pineapple )
+    // [0] => D
+    // [1] => E
 
-//array unshift use to add element in starting of array
-// Array ( [0] => Kiwi [1] => Apple [2] => Mango [3] => Grapes [4] => Watermelon [5] => Strawberry [6] => Pineapple )
+echo"<pre>";
+print_r(array_slice($chars_with_numeric_keys, 3,2 ,true));//true to preserve keys 
+echo"</pre>";
+
+    // [13] => D
+    // [14] => E
+
+
+
+//-------------------------------------------------------------
+//array_splice
+$names = ["Iness", "Ali", "Mhmd", "Sara", "Mona", "Yara"];
+
+echo "<pre>";
+print_r(array_splice($names, 2)); // from index 2 and remove it from original array
+print_r($names);
+echo "</pre>";
+echo "<br>";
+
+//     [0] => Mhmd
+//     [1] => Sara
+//     [2] => Mona
+//     [3] => Yara
+
+
+$names = ["Iness", "Ali", "Mhmd", "Sara", "Mona", "Yara"];
+
+
+echo "<pre>";
+print_r(array_splice($names, -2)); //index -2  "Mona", "Yara" and remove it from original array
+print_r($names);
+echo "</pre>";
+echo "<br>";
+
+// Array
+// (
+//     [0] => Mona
+//     [1] => Yara
+// )
+// Array
+// (
+//     [0] => Iness
+//     [1] => Ali
+//     [2] => Mhmd
+//     [3] => Sara
+// )
+
+
+$names = ["Iness", "Ali", "Mhmd", "Sara", "Mona", "Yara"];
+
+echo "<pre>";
+print_r(array_splice($names, 2,-2)); // ["Mhmd", "Sara"] remove it from original array
+print_r($names);
+echo "</pre>";
+echo "<br>";
+
+//-------------------------------------------------------------
+
+$names = ["Iness", "Ali", "Mhmd", "Sara", "Mona", "Yara"];
+
+echo "<pre>";
+print_r(array_splice($names, 2,2,["hassane","younes"])); // remove "Mhmd" and "Sara" and add "hassane","younes" in index 2
+print_r($names);
+echo "</pre>";
+echo "<br>";
+
+// Array
+// (
+//     [0] => Mhmd
+//     [1] => Sara
+// )
+// Array
+// (
+//     [0] => Iness
+//     [1] => Ali
+//     [2] => hassane
+//     [3] => younes
+//     [4] => Mona
+//     [5] => Yara
+// )
+
+
+
+$names = ["Iness", "Ali", "Mhmd", "Sara", "Mona", "Yara"];
+
+echo "<pre>";
+print_r(array_splice($names, 2,1,["hassane","younes"])); // remove "Mhmd" and add "hassane","younes" in index 2 
+print_r($names);
+echo "</pre>";
+echo "<br>";
+
+// Array
+// (
+//     [0] => Mhmd
+// )
+// Array
+// (
+//     [0] => Iness
+//     [1] => Ali
+//     [2] => hassane
+//     [3] => younes
+//     [4] => Sara
+//     [5] => Mona
+//     [6] => Yara
+// )
