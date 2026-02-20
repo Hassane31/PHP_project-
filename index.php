@@ -1,52 +1,54 @@
 <?php
-//Array Functions / Sorting Functions
+//Array map ,Array Filter 
 
-$names = ["Iness","mhmd","sara","mohamed","bentata"];
+Function add_title($name,$last){
+    return "Mr. ".$name."_".$last;
+}
+$first_names = ["Iness","yacine","Younes"];
+$last_names = ["secret","Chaibout","Abdelaziz"];
 
-sort($names); //sort in ascending order
-    // [0] => Iness
-    // [1] => bentata
-    // [2] => mhmd
-    // [3] => mohamed
-    // [4] => sara
+echo "<pre>";
+print_r(array_map("add_title",$first_names,$last_names));
+echo "<pre>";
+    // [0] => Mr. Iness_secret
+    // [1] => Mr. yacine_Chaibout
+    // [2] => Mr. Younes_Abdelaziz
 
-rsort($names); //sort in descending order 
-
-$countries = ["1"=>"Tunisia","3"=>"Egypt","6"=>"Libya","9"=>"Algeria"];
-
-asort($countries); //sort by value in ascending order
-    // [9] => Algeria
-    // [3] => Egypt
-    // [6] => Libya
-    // [1] => Tunisia
-
-arsort($countries); //sort by value in descending order
-    // [1] => Tunisia
-    // [6] => Libya
-    // [3] => Egypt
-    // [9] => Algeria
-
-ksort($countries); //sort by key in ascending order
-    // [1] => Tunisia
-    // [3] => Egypt
-    // [6] => Libya
-    // [9] => Algeria
-
-krsort($countries); //sort by key in descending order
-    // [9] => Algeria
-    // [6] => Libya
-    // [3] => Egypt
-    // [1] => Tunisia
-
-$files = ["file20.txt","file1.txt","file3.txt"];
-    // [0] => file1.txt
-    // [1] => file20.txt
-    // [2] => file3.txt
+echo "<pre>";
+print_r(array_map(fn($f,$l)=>"Mr $f"."_$l ",$first_names,$last_names));
+echo "<pre>";
+//     [0] => Mr Iness_secret 
+//     [1] => Mr yacine_Chaibout 
+//     [2] => Mr Younes_Abdelaziz
 
 
 
-natsort($files); //sort naturally like humans do
+//array filtre
+function check_nums($num){
+    return $num > 5;
+}
+ 
+$nums = [1 =>3 ,2 => 4,3 => 5,4 => 6,5 => 7,6 => 8];
+echo "<pre>";
+print_r(array_filter($nums,"check_nums"));//check if the num is greater than 5 in value
+echo "</pre>";
+    // [4] => 6
+    // [5] => 7
+    // [6] => 8
 
-    // [0] => file1.txt
-    // [2] => file3.txt
-    // [1] => file20.txt
+echo "<pre>";
+print_r(array_filter($nums,"check_nums",ARRAY_FILTER_USE_KEY));//check if the num is greater than 5 in key
+echo "</pre>";
+    // [6] => 8
+
+function check_nums2($num,$num2){
+    return $num > 5 || $num2 > 5;
+}
+
+echo "<pre>";
+print_r(array_filter($nums,"check_nums2",ARRAY_FILTER_USE_BOTH));//check if the num is greater than 5 in value or key
+echo "</pre>";
+    // [4] => 6
+    // [5] => 7
+    // [6] => 8
+    
