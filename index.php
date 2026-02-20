@@ -1,164 +1,52 @@
 <?php
-//array Slice , Array Splice
+//Array Functions / Sorting Functions
 
-//array_slice
-$names = ["Iness", "Ali", "Mhmd", "Sara", "Mona", "Yara"];
+$names = ["Iness","mhmd","sara","mohamed","bentata"];
 
-echo"<pre>";
-print_r(array_slice($names, 2)); // from index 2
-echo"</pre>";
-echo "<br>";
-
+sort($names); //sort in ascending order
     // [0] => Iness
-    // [1] => Sara
-    // [2] => Mhmd
-    // [3] => Yara
+    // [1] => bentata
+    // [2] => mhmd
+    // [3] => mohamed
+    // [4] => sara
 
-echo"<pre>";
-print_r(array_slice($names, -4)); // from index 2 like -4 
-echo"</pre>";
+rsort($names); //sort in descending order 
 
-    // [0] => Iness
-    // [1] => Ali
-    // [2] => Mhmd
-    // [3] => Yara
+$countries = ["1"=>"Tunisia","3"=>"Egypt","6"=>"Libya","9"=>"Algeria"];
 
-echo"<pre>";
-print_r(array_slice($names, 2, 2)); // from index 2 to index 2+2 = 4
-echo"</pre>";
+asort($countries); //sort by value in ascending order
+    // [9] => Algeria
+    // [3] => Egypt
+    // [6] => Libya
+    // [1] => Tunisia
 
-    // [0] => Mhmd
-    // [1] => Sara
-    
-echo"<pre>";
-print_r(array_slice($names, 2, -2)); // from index 2 to index -2 = 4 
-echo"</pre>";
-    
-echo"<pre>";
-print_r($names); // original array is not modified
-echo"</pre>";
+arsort($countries); //sort by value in descending order
+    // [1] => Tunisia
+    // [6] => Libya
+    // [3] => Egypt
+    // [9] => Algeria
 
-//-------------------------------------------------------------
+ksort($countries); //sort by key in ascending order
+    // [1] => Tunisia
+    // [3] => Egypt
+    // [6] => Libya
+    // [9] => Algeria
 
-$chars_with_string_keys = ["a" => "A", "b" => "B", "c" => "C", "d" => "D", "e" => "E"];
-$chars_with_numeric_keys = [10 => "A", 11 => "B", 12 => "C", 13 => "D", 14 => "E"];
+krsort($countries); //sort by key in descending order
+    // [9] => Algeria
+    // [6] => Libya
+    // [3] => Egypt
+    // [1] => Tunisia
 
-echo"<pre>";
-print_r(array_slice($chars_with_string_keys, 3,2 )); 
-echo"</pre>";
-
-    // [d] => D
-    // [e] => E
-
-echo"<pre>";
-print_r(array_slice($chars_with_numeric_keys, 3,2 )); 
-echo"</pre>";
-
-    // [0] => D
-    // [1] => E
-
-echo"<pre>";
-print_r(array_slice($chars_with_numeric_keys, 3,2 ,true));//true to preserve keys 
-echo"</pre>";
-
-    // [13] => D
-    // [14] => E
+$files = ["file20.txt","file1.txt","file3.txt"];
+    // [0] => file1.txt
+    // [1] => file20.txt
+    // [2] => file3.txt
 
 
 
-//-------------------------------------------------------------
-//array_splice
-$names = ["Iness", "Ali", "Mhmd", "Sara", "Mona", "Yara"];
+natsort($files); //sort naturally like humans do
 
-echo "<pre>";
-print_r(array_splice($names, 2)); // from index 2 and remove it from original array
-print_r($names);
-echo "</pre>";
-echo "<br>";
-
-//     [0] => Mhmd
-//     [1] => Sara
-//     [2] => Mona
-//     [3] => Yara
-
-
-$names = ["Iness", "Ali", "Mhmd", "Sara", "Mona", "Yara"];
-
-
-echo "<pre>";
-print_r(array_splice($names, -2)); //index -2  "Mona", "Yara" and remove it from original array
-print_r($names);
-echo "</pre>";
-echo "<br>";
-
-// Array
-// (
-//     [0] => Mona
-//     [1] => Yara
-// )
-// Array
-// (
-//     [0] => Iness
-//     [1] => Ali
-//     [2] => Mhmd
-//     [3] => Sara
-// )
-
-
-$names = ["Iness", "Ali", "Mhmd", "Sara", "Mona", "Yara"];
-
-echo "<pre>";
-print_r(array_splice($names, 2,-2)); // ["Mhmd", "Sara"] remove it from original array
-print_r($names);
-echo "</pre>";
-echo "<br>";
-
-//-------------------------------------------------------------
-
-$names = ["Iness", "Ali", "Mhmd", "Sara", "Mona", "Yara"];
-
-echo "<pre>";
-print_r(array_splice($names, 2,2,["hassane","younes"])); // remove "Mhmd" and "Sara" and add "hassane","younes" in index 2
-print_r($names);
-echo "</pre>";
-echo "<br>";
-
-// Array
-// (
-//     [0] => Mhmd
-//     [1] => Sara
-// )
-// Array
-// (
-//     [0] => Iness
-//     [1] => Ali
-//     [2] => hassane
-//     [3] => younes
-//     [4] => Mona
-//     [5] => Yara
-// )
-
-
-
-$names = ["Iness", "Ali", "Mhmd", "Sara", "Mona", "Yara"];
-
-echo "<pre>";
-print_r(array_splice($names, 2,1,["hassane","younes"])); // remove "Mhmd" and add "hassane","younes" in index 2 
-print_r($names);
-echo "</pre>";
-echo "<br>";
-
-// Array
-// (
-//     [0] => Mhmd
-// )
-// Array
-// (
-//     [0] => Iness
-//     [1] => Ali
-//     [2] => hassane
-//     [3] => younes
-//     [4] => Sara
-//     [5] => Mona
-//     [6] => Yara
-// )
+    // [0] => file1.txt
+    // [2] => file3.txt
+    // [1] => file20.txt
